@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">LendingBooks</string>
+    <string name="borrow_your_books">Borrow your books!</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="science_fiction">Science Fiction</string>
+    <string name="novel">Novel</string>
+    <string name="quantity_0">Quantity: 0</string>
+    <string name="order">Order</string>
+    <string name="cancel">Cancel</string>
+    <string name="thank_you">Thank you!</string>
+    <string name="conditions">Conditions</string>
+    <string name="used">Used</string>
+    <string name="brand_new">Brand new</string>
+</resources>
