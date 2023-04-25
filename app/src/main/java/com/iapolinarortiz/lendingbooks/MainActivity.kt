@@ -2,6 +2,7 @@ package com.iapolinarortiz.lendingbooks
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.RadioGroup
@@ -96,6 +97,31 @@ class MainActivity : AppCompatActivity() {
             }
         }
         tvBorrowPrice.text = "Borrow price: $$totalPrice"
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("onStart", "onStart getting called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("onResume", "onResume getting called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("onPause", "onPause getting called")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("onRestart", "onRestart getting called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("onDestroy", "onDestroy getting called")
     }
 
     companion object {
