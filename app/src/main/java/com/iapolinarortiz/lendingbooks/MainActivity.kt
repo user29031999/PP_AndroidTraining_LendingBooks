@@ -15,6 +15,11 @@ import com.google.android.material.textfield.TextInputEditText
 
 
 class MainActivity : AppCompatActivity() {
+    private var name = "No name"
+    private var quantity = 0
+    private var isBrandNew = true
+    private var isUsed = false
+    private var totalPrice = 0.00
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -128,10 +133,5 @@ class MainActivity : AppCompatActivity() {
         const val BASE_PRICE = 10.00
         const val SCIFI_PRICE = 2.00
         const val NOVEL_PRICE = 1.00
-        var name = "No name"
-        var quantity = 0
-        var isBrandNew = true
-        var isUsed = false
-        var totalPrice = 0.00
     }
 }
