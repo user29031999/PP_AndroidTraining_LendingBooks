@@ -11,4 +11,10 @@
     <string name="conditions">Conditions</string>
     <string name="used">Used</string>
     <string name="brand_new">Brand new</string>
+    <string-array name="books_categories">
+        <item>Science fiction</item>
+        <item>Novel</item>
+        <item>Horror</item>
+        <item>Bios</item>
+    </string-array>
 </resources>

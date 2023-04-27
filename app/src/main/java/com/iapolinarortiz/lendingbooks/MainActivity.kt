@@ -1,12 +1,18 @@
 package com.iapolinarortiz.lendingbooks
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.RadioGroup
+import android.widget.Spinner
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.widget.addTextChangedListener
@@ -20,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     private var isBrandNew = true
     private var isUsed = false
     private var totalPrice = 0.00
+    private var book = ""
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,6 +84,29 @@ class MainActivity : AppCompatActivity() {
             tvQuantity.text = "Quantity: $quantity"
             enableOptions(btnOrder, rdBrandNew, rdUsed)
             getTotalPrice(tvBorrowPrice)
+        }
+        val spnCategories: Spinner = findViewById(R.id.spn_categories)
+        val categoriesAdapter: ArrayAdapter<String> = ArrayAdapter(
+            this,
+            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+            resources.getStringArray(R.array.books_categories)
+        )
+        spnCategories.adapter = categoriesAdapter
+        val etBook: TextInputEditText = findViewById(R.id.et_book)
+        val getContent =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                run {
+                    if (result.resultCode == Activity.RESULT_OK) {
+                        val data: Intent? = result.data
+                        book = data?.extras?.getString("book").toString()
+                        etBook.setText(book)
+                    }
+                }
+            }
+        val btnCategories: Button = findViewById(R.id.btn_books)
+        btnCategories.setOnClickListener {
+            val intent = Intent(this, BooksActivity::class.java)
+            getContent.launch(intent)
         }
 
         enableOptions(btnOrder, rdBrandNew, rdUsed)

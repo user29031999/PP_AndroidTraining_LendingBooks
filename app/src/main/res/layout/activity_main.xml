@@ -74,8 +74,37 @@
             android:id="@+id/space_name_categories"
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            app:layout_constraintBottom_toTopOf="@id/tv_book_category"
+            app:layout_constraintBottom_toTopOf="@id/text_input_book"
             app:layout_constraintTop_toBottomOf="@id/text_input_name" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_book"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Choose a book"
+            app:layout_constraintTop_toBottomOf="@id/space_name_categories">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_book"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/spn_categories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/text_input_book" />
+
+        <Button
+            android:id="@+id/btn_books"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My books"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spn_categories" />
 
         <TextView
             android:id="@+id/tv_book_category"
@@ -85,14 +114,21 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/space_name_categories" />
+            app:layout_constraintTop_toBottomOf="@id/btn_books" />
+
+        <Space
+            android:id="@+id/space_categories"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            app:layout_constraintBottom_toTopOf="@id/rdgrp_categories"
+            app:layout_constraintTop_toBottomOf="@id/tv_book_category" />
 
         <RadioGroup
             android:id="@+id/rdgrp_categories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checkedButton="@id/rd_brandnew"
-            app:layout_constraintTop_toBottomOf="@id/tv_book_category">
+            app:layout_constraintTop_toBottomOf="@id/space_categories">
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rd_brandnew"
